@@ -14,8 +14,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_23_055740) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "movies", id: false, force: :cascade do |t|
-    t.bigint "id", null: false
+  create_table "movies", id: :bigint, default: nil, force: :cascade do |t|
     t.string "title"
     t.string "casts"
     t.string "directors"
@@ -28,6 +27,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_23_055740) do
     t.datetime "updated_at", null: false
     t.string "review"
     t.string "user_id", null: false
+    t.string "movie_id"
   end
 
   create_table "users", force: :cascade do |t|
